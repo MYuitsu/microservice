@@ -24,15 +24,20 @@ Một Java WAR file.
 Một thư mục phân cấp của Rails hoặc NodeJs.
 
 ## Example
-Hãy tưởng tượng bạn muốn xây dựng một ứng dựng tương mại điện tử có các chức năng như nhân đặt hàng tự khác hàng, xác nhận nhận tồn kho và tính dụng có hiệu lực (đã thanh toán hoặc còn dư nợ) sau đó vận chuyển hàng hóa.
+Hãy tưởng tượng bạn muốn xây dựng một ứng dựng tương mại điện tử có các chức năng như nhân đặt hàng tự khác hàng, xác nhận nhận tồn kho và tính dụng có hiệu lực (đã thanh toán hoặc còn dư nợ) sau đó vận chuyển hàng hóa. Ứng dụng bao gồm 1 vài thành phần bao gồm giao diện kho, kèm theo đó là `backend services` để kiểm tra tính dụng, bảo trì kho và chuyển đơn hàng.
 
-Let’s imagine that you are building an e-commerce application that takes orders from customers, verifies inventory and available credit, and ships them. The application consists of several components including the StoreFrontUI, which implements the user interface, along with some backend services for checking credit, maintaining inventory and shipping orders.
-
-The application is deployed as a single monolithic application. For example, a Java web application consists of a single WAR file that runs on a web container such as Tomcat. A Rails application consists of a single directory hierarchy deployed using either, for example, Phusion Passenger on Apache/Nginx or JRuby on Tomcat. You can run multiple instances of the application behind a load balancer in order to scale and improve availability.
-
-
+Ưng dụng được triển khai như một ứng dụng nguyên khối duy nhất. Ví dụ như, một ứng dụng web Java bao gồm 1 tập tin WAR dùng để chạy trên một `container` như Tomcat. Một ứng dụng Rails bao gồm tập hợp các thư mục kế thừa, như là Phusion Passenger on Apache/Nginx hoặc JRuby trên Tomcat. Bạn có thể chạy nhiều `instance` của ứng dụng đằng sau `load balancer` để có thể mở rộng cũng như tăng tính khả dụng.
 
 ## Resulting context
+Giải pháp này có một số các lợi ích:
+
+- Phát triển đơn giản - mục tiêu của các công cụ phát triển và IDEs là đê hổ trợ việc phát triển các ứng dụng nguyên khối.
+- Dễ dàng triển khai - chỉ cần triển khai file WAR (hoặc thư mục) trên các `runtime` phù hợp.
+- Dễ dàng mở rộng - chỉ cần mở rộng bằng cách chạy nhiều bản sao của ứng dụng đằng sau `laod balancer`.
+Nhưng, một ứng dụng trở nên rất lớn và đội ngũ phát triên cũng tăng lên, phương pháp tiếp cận này có một số hạn chế ngày càng trở nên nghiệm trọng hơn:
+
+
+
 This solution has a number of benefits:
 
 Simple to develop - the goal of current development tools and IDEs is to support the development of monolithic applications
